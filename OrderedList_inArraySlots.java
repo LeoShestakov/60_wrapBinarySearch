@@ -10,6 +10,7 @@ public class OrderedList_inArraySlots
     implements OrderedList {
 
     private java.util.ArrayList<Integer> list_iAS;
+	private int steps;
 
 
     /**
@@ -23,11 +24,15 @@ public class OrderedList_inArraySlots
             // findMe, 0, list_iAS.size() -1);
     }
 
-
+	public int cost() {
+		return steps;
+	}
+	
     /**
       @return the indexOf value, calculated while-style
      */
     private int indexOf_whileStyle( Integer findMe) {
+		steps += 1;
         int low = 0;
         int hi  = list_iAS.size() -1;  // inclusive
 
@@ -58,6 +63,7 @@ public class OrderedList_inArraySlots
                                  ) {
         // System.out.println( "debug low: " + low
                           // + "   hi: " + hi);
+		steps += 1;
         if( low > hi)  // detect base case
             return -2;   // solution to base case
               // value differs from while-style method, just FYI
@@ -89,6 +95,7 @@ public class OrderedList_inArraySlots
 
     public OrderedList_inArraySlots() {
         list_iAS = new java.util.ArrayList<Integer>();
+		steps = 0;
     }
 
     /**
